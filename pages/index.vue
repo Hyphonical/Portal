@@ -129,7 +129,7 @@
 
             <!-- Image -->
             <img
-              src="/images/portal.webp"
+              src="/images/portal-2.webp"
               alt="Void Tales ~ Soul Station"
               class="relative w-full rounded-2xl
                      opacity-95 mix-blend-normal dark:mix-blend-lighten"
