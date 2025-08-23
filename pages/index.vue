@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 <template>
 	<section class="text-center space-y-8">
 		<div
@@ -76,12 +78,13 @@
 						class="pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-br from-purple-500/30 via-indigo-500/15 to-cyan-400/30 opacity-60"
 					></div>
 
-					<img
+					<Image
 						src="/images/portal.webp"
 						alt="Void Tales ~ Soul Station"
 						loading="lazy"
 						decoding="async"
 						fetchpriority="low"
+						placeholder="blur"
 						class="relative w-full rounded-2xl opacity-95 mix-blend-normal dark:mix-blend-lighten"
 					/>
 
@@ -108,12 +111,13 @@
 						class="pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-br from-purple-500/30 via-indigo-500/15 to-cyan-400/30 opacity-60"
 					></div>
 
-					<img
+					<Image
 						src="/images/portal-2.webp"
 						alt="Void Tales ~ Soul Station"
 						loading="lazy"
 						decoding="async"
 						fetchpriority="low"
+						placeholder="blur"
 						class="relative w-full rounded-2xl opacity-95 mix-blend-normal dark:mix-blend-lighten"
 					/>
 
