@@ -6,5 +6,22 @@ module.exports = {
     "./app.vue"
   ],
   plugins: [],
-  darkMode: 'class'
+  darkMode: 'class',
+  theme: {
+    extend: {
+      animation: {
+        bob: 'bob 6s ease-in-out infinite',
+      },
+      keyframes: {
+        bob: {
+          '0%, 100%': {
+            transform: 'translateY(-2%)',
+          },
+          '50%': {
+            transform: 'translateY(2%)',
+          },
+        },
+      },
+    },
+  },
 }
