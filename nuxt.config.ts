@@ -1,7 +1,7 @@
 export default defineNuxtConfig({
 	devtools: { enabled: true },
 	compatibilityDate: '2025-08-22',
-	modules: ['@nuxtjs/color-mode'],
+	modules: ['@nuxtjs/color-mode', '@nuxt/fonts'],
 	debug: false,
 
 	css: ['~/assets/css/tailwind.css'],
@@ -11,6 +11,13 @@ export default defineNuxtConfig({
 			'@tailwindcss/postcss': {},
 			autoprefixer: {}
 		}
+	},
+
+	fonts: {
+		families: [
+		{ name: 'Inter', provider: 'google' },
+		{ name: 'Roboto Mono', provider: 'google' }
+		]
 	},
 
 	app: {

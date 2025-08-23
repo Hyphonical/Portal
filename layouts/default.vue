@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<header class="border-b border-neutral-200/40 dark:border-neutral-800/60">
+		<header class="sticky top-0 z-50 border-b border-neutral-200/40 dark:border-neutral-800/60 bg-white/70 dark:bg-neutral-900/70 backdrop-blur-md">
 			<div class="mx-auto max-w-5xl px-6 py-4 flex items-center justify-between">
 				<NuxtLink to="/" class="font-semibold tracking-wide">Void Tales</NuxtLink>
 				<div class="flex items-center gap-3">
