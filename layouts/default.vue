@@ -15,7 +15,7 @@
 
     <footer class="mt-20 border-t border-neutral-200/40 dark:border-neutral-800/60">
       <div class="mx-auto max-w-5xl px-6 py-8 text-sm opacity-70">
-        © {{ new Date().getFullYear() }} Void Tales
+        © {{ new Date().getFullYear() }} Void Tales ~ Vibe-casted by Hyphonical 💙
       </div>
     </footer>
   </div>
