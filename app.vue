@@ -5,7 +5,7 @@
       <Background />
     </ClientOnly>
     <NuxtLayout>
-      <main class="relative z-10 min-h-screen">
+      <main class="relative z-10 min-h-screen opacity-0 animate-fade-in motion-reduce:animate-none">
         <NuxtPage />
       </main>
     </NuxtLayout>

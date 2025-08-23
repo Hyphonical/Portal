@@ -52,7 +52,10 @@ export default defineNuxtConfig({
 			ogImage: '/og.svg',
 			twitterImage: '/twitter.svg',
 			twitterCard: 'summary_large_image',
-			twitterSite: '@shinsnowly'
+			twitterSite: '@shinsnowly',
+			mcServerHost: process.env.NUXT_PUBLIC_MC_HOST || 'play.voidtales.win',
+			mcServerPort: process.env.NUXT_PUBLIC_MC_PORT || '25565',
+			modrinthUrl: process.env.NUXT_PUBLIC_MODRINTH_URL || 'https://modrinth.com/modpack/void-tales'
 		}
 	},
 

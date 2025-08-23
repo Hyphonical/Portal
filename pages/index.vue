@@ -26,16 +26,13 @@
 			></span>
 		</div>
 
-		<p class="text-lg opacity-80">A station between worlds ✨</p>
+		<p class="text-lg opacity-80">A station between worlds ✨</p>	
+	</section>
 
-		<div class="flex items-center justify-center">
-			<NuxtLink
-				to="/join"
-				class="px-5 py-2.5 rounded-xl shadow-[0_2px_32px_0_oklch(60.6%_0.25_292.717)] hover:scale-105 bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 hover:opacity-90 transition"
-			>
-				Join Us
-			</NuxtLink>
-		</div>
+	<!-- Connect / Status -->
+	<section class="mx-auto w-full max-w-5xl px-6 py-10 opacity-0 animate-fade-in">
+		<h2 class="text-2xl font-semibold tracking-wide mb-4">Connect</h2>
+		<ServerStatus />
 	</section>
 
 	<!-- Portal Content Left -->
@@ -167,28 +164,28 @@
 			<NuxtLink
 				to="https://wiki.voidtales.win"
 				target="_blank"
-				class="px-4 py-2 rounded-xl bg-neutral-100 dark:bg-neutral-800/60 hover:bg-neutral-200 dark:hover:bg-neutral-800/90 transition-colors"
+				class="px-4 py-2 rounded-xl bg-black text-white dark:bg-white dark:text-black hover:brightness-110 transition-colors"
 			>
 				Wiki
 			</NuxtLink>
 			<NuxtLink
 				to="https://blog.voidtales.win"
 				target="_blank"
-				class="px-4 py-2 rounded-xl bg-neutral-100 dark:bg-neutral-800/60 hover:bg-neutral-200 dark:hover:bg-neutral-800/90 transition-colors"
+				class="px-4 py-2 rounded-xl bg-black text-white dark:bg-white dark:text-black hover:brightness-110 transition-colors"
 			>
 				Blog
 			</NuxtLink>
 			<NuxtLink
 				to="https://forum.voidtales.win"
 				target="_blank"
-				class="px-4 py-2 rounded-xl bg-neutral-100 dark:bg-neutral-800/60 hover:bg-neutral-200 dark:hover:bg-neutral-800/90 transition-colors"
+				class="px-4 py-2 rounded-xl bg-black text-white dark:bg-white dark:text-black hover:brightness-110 transition-colors"
 			>
 				Forum
 			</NuxtLink>
 			<NuxtLink
 				to="https://discord.voidtales.win"
 				target="_blank"
-				class="px-4 py-2 rounded-xl bg-neutral-100 dark:bg-neutral-800/60 hover:bg-neutral-200 dark:hover:bg-neutral-800/90 transition-colors"
+				class="px-4 py-2 rounded-xl bg-black text-white dark:bg-white dark:text-black hover:brightness-110 transition-colors"
 			>
 				Discord
 			</NuxtLink>
@@ -198,6 +195,6 @@
 
 <script setup lang="ts">
 definePageMeta({
-	title: 'Home'
+    title: 'Home'
 })
 </script>
