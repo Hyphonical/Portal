@@ -1,0 +1,55 @@
+export default defineNuxtConfig({
+  devtools: { enabled: true },
+  compatibilityDate: '2025-08-22',
+  modules: ['@nuxtjs/color-mode'],
+  debug: false,
+
+  css: ['~/assets/css/tailwind.css'],
+
+  postcss: {
+    plugins: {
+      '@tailwindcss/postcss': {},
+      autoprefixer: {}
+    }
+  },
+
+  app: {
+    head: {
+      title: 'Void Tales',
+      titleTemplate: '%s · Void Tales',
+      htmlAttrs: { lang: 'en' },
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'description', content: 'A station between worlds ✨' },
+        { name: 'theme-color', content: '#000000' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:site_name', content: 'Void Tales' }
+      ],
+      link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap' },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Asul:wght@400&display=swap' }
+      ]
+    }
+  },
+
+  runtimeConfig: {
+    public: {
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+      siteName: 'Void Tales',
+      siteDescription: 'A station between worlds ✨',
+      themeColor: '#000000',
+      ogImage: '/og.svg',
+      twitterImage: '/twitter.svg',
+      twitterCard: 'A station between worlds ✨',
+      twitterSite: '@shinsnowly'
+    }
+  },
+
+  colorMode: {
+    classSuffix: '',
+    preference: 'system',
+    fallback: 'dark'
+  }
+})
