@@ -26,7 +26,7 @@
 			></span>
 		</div>
 
-		<p class="text-lg opacity-80">A station between worlds ✨</p>	
+		<p class="text-lg opacity-80">A station between worlds ✨</p>
 	</section>
 
 	<!-- Connect / Status -->
@@ -44,24 +44,22 @@
 					Through Ash and Arcana
 				</h2>
 				<p class="text-base leading-relaxed opacity-85">
-					Step into a realm shaped by embers, where lost kingdoms whisper and
-					sorcery bends the void. Claim your path, master the arcane, and brave
-					the trials between worlds.
+					You awaken in a world undone, where the goddess Phia lies scattered and silent, her fragments hidden across realms touched by the void.
+					At the center of it all stands the Soul Station—a place where memory drifts, where paths between worlds converge.
+					To walk this journey is to seek not only the pieces of a fallen divinity, but also the shape of your own forgotten self.
 				</p>
 				<ul class="space-y-2.5 text-sm opacity-85">
 					<li class="flex gap-3">
 						<span class="mt-2 h-2 w-2 rounded-full bg-purple-500/80"></span>
-						<span>RPG progression, bespoke classes, and attunements.</span>
+						<span>Gather Phia’s fragments, hidden in worlds fractured by the void.</span>
 					</li>
 					<li class="flex gap-3">
 						<span class="mt-2 h-2 w-2 rounded-full bg-indigo-500/80"></span>
-						<span>Brutal encounters, world events, and co-op challenges.</span>
+						<span>Shape your soul with relics, sigils, and attunements.</span>
 					</li>
 					<li class="flex gap-3">
 						<span class="mt-2 h-2 w-2 rounded-full bg-cyan-400/80"></span>
-						<span
-							>Discover relics, craft sigils, and bend the void to your
-							will.</span
+						<span>Confront the trials that guard the way between memory and rebirth.</span
 						>
 					</li>
 				</ul>
@@ -70,14 +68,14 @@
 			<!-- Image Card: slanted left -->
 			<div class="relative [perspective:1200px] animate-bob">
 				<div
-					class="relative rounded-2xl overflow-hidden border bg-white/5 border-neutral-200/40 shadow-2xl dark:bg-black/30 dark:border-white/10 backdrop-blur-sm -skew-1 rotate-5"
+					class="relative rounded-2xl overflow-hidden border bg-white/5 border-neutral-200/40 shadow-2xl dark:bg-black/30 dark:border-white/10 backdrop-blur-sm -skew-1 rotate-5 card-hover"
 				>
 					<div
 						class="pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-br from-purple-500/30 via-indigo-500/15 to-cyan-400/30 opacity-60"
 					></div>
 
 					<img
-						src="/images/portal.webp"
+						src="/images/portal-1.webp"
 						alt="Void Tales ~ Soul Station"
 						loading="lazy"
 						decoding="async"
@@ -102,7 +100,7 @@
 			<!-- Image Card: slanted right -->
 			<div class="relative [perspective:1200px] animate-bob">
 				<div
-					class="relative rounded-2xl overflow-hidden border bg-white/5 border-neutral-200/40 shadow-2xl dark:bg-black/30 dark:border-white/10 backdrop-blur-sm skew-1 -rotate-5"
+					class="relative rounded-2xl overflow-hidden border bg-white/5 border-neutral-200/40 shadow-2xl dark:bg-black/30 dark:border-white/10 backdrop-blur-sm skew-1 -rotate-5 card-hover"
 				>
 					<div
 						class="pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-br from-purple-500/30 via-indigo-500/15 to-cyan-400/30 opacity-60"
@@ -129,31 +127,107 @@
 			<!-- Text (Right) -->
 			<div class="space-y-5">
 				<h2 class="text-3xl md:text-4xl font-semibold tracking-wide">
-					Through Ash and Arcana
+					The Shattered Realms
 				</h2>
 				<p class="text-base leading-relaxed opacity-85">
-					Step into a realm shaped by embers, where lost kingdoms whisper and
-					sorcery bends the void. Claim your path, master the arcane, and brave
-					the trials between worlds.
+					The lands you cross are more than ruins—they are kingdoms long surrendered to time.
+					In the autumn-bound halls of Falwhind, beneath the endless trees of Ibya, or in the buried stone of Aridia, every shadow holds its own memory.
+					Battles rise and fall, strange events twist the present, and creatures beyond reason linger in the dark.
+					Here, to lose yourself is to step closer to the truth the world has hidden.
 				</p>
 				<ul class="space-y-2.5 text-sm opacity-85">
 					<li class="flex gap-3">
 						<span class="mt-2 h-2 w-2 rounded-full bg-purple-500/80"></span>
-						<span>RPG progression, bespoke classes, and attunements.</span>
+						<span>Wander realms each marked by their own history and peril.</span>
 					</li>
 					<li class="flex gap-3">
 						<span class="mt-2 h-2 w-2 rounded-full bg-indigo-500/80"></span>
-						<span>Brutal encounters, world events, and co-op challenges.</span>
+						<span>Face encounters, events, and challenges that shift with the world.</span>
 					</li>
 					<li class="flex gap-3">
 						<span class="mt-2 h-2 w-2 rounded-full bg-cyan-400/80"></span>
-						<span
-							>Discover relics, craft sigils, and bend the void to your
-							will.</span
-						>
+						<span>Discover the strange beauty of being lost—and the wonder of finding your way.</span>
 					</li>
 				</ul>
 			</div>
+		</div>
+	</section>
+
+	<!-- Gallery 2x2 -->
+	<section class="mx-auto w-full max-w-6xl px-4 md:px-6 lg:px-8 py-14 md:py-20">
+		<div class="text-center max-w-2xl mx-auto space-y-3 mb-10">
+			<h2 class="text-3xl md:text-4xl font-semibold tracking-wide">Echoes from the Station</h2>
+			<p class="opacity-85">Glimpses across realms—moments caught between memory and motion.</p>
+		</div>
+
+		<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
+			<!-- Card 1 -->
+			<div ref="card1" class="relative rounded-2xl overflow-hidden border bg-white/5 border-neutral-200/40 shadow-2xl dark:bg-black/30 dark:border-white/10 backdrop-blur-sm card-hover">
+				<div class="pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-br from-purple-500/30 via-indigo-500/15 to-cyan-400/30 opacity-60"></div>
+				<img
+					src="/images/grid-1.webp"
+					alt="Gallery image 1"
+					loading="lazy"
+					decoding="async"
+					fetchpriority="low"
+					class="relative w-full rounded-2xl opacity-95 object-cover mix-blend-normal dark:mix-blend-lighten"
+					style="aspect-ratio: 16/9"
+				/>
+				<div class="absolute inset-0 bg-gradient-to-br from-purple-400/10 via-transparent to-indigo-400/10"></div>
+				<div class="pointer-events-none absolute inset-0 ring-1 ring-black/10 dark:ring-white/10 rounded-2xl"></div>
+			</div>
+
+			<!-- Card 2 -->
+			<div ref="card2" class="relative rounded-2xl overflow-hidden border bg-white/5 border-neutral-200/40 shadow-2xl dark:bg-black/30 dark:border-white/10 backdrop-blur-sm card-hover">
+				<div class="pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-br from-purple-500/30 via-indigo-500/15 to-cyan-400/30 opacity-60"></div>
+				<img
+					src="/images/grid-2.webp"
+					alt="Gallery image 2"
+					loading="lazy"
+					decoding="async"
+					fetchpriority="low"
+					class="relative w-full rounded-2xl opacity-95 object-cover mix-blend-normal dark:mix-blend-lighten"
+					style="aspect-ratio: 16/9"
+				/>
+				<div class="absolute inset-0 bg-gradient-to-br from-purple-400/10 via-transparent to-indigo-400/10"></div>
+				<div class="pointer-events-none absolute inset-0 ring-1 ring-black/10 dark:ring-white/10 rounded-2xl"></div>
+			</div>
+
+			<!-- Card 3 -->
+			<div ref="card3" class="relative rounded-2xl overflow-hidden border bg-white/5 border-neutral-200/40 shadow-2xl dark:bg-black/30 dark:border-white/10 backdrop-blur-sm card-hover">
+				<div class="pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-br from-purple-500/30 via-indigo-500/15 to-cyan-400/30 opacity-60"></div>
+				<img
+					src="/images/grid-3.webp"
+					alt="Gallery image 3"
+					loading="lazy"
+					decoding="async"
+					fetchpriority="low"
+					class="relative w-full rounded-2xl opacity-95 object-cover mix-blend-normal dark:mix-blend-lighten"
+					style="aspect-ratio: 16/9"
+				/>
+				<div class="absolute inset-0 bg-gradient-to-br from-purple-400/10 via-transparent to-indigo-400/10"></div>
+				<div class="pointer-events-none absolute inset-0 ring-1 ring-black/10 dark:ring-white/10 rounded-2xl"></div>
+			</div>
+
+			<!-- Card 4 -->
+			<div ref="card4" class="relative rounded-2xl overflow-hidden border bg-white/5 border-neutral-200/40 shadow-2xl dark:bg-black/30 dark:border-white/10 backdrop-blur-sm card-hover">
+				<div class="pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-br from-purple-500/30 via-indigo-500/15 to-cyan-400/30 opacity-60"></div>
+				<img
+					src="/images/grid-4.webp"
+					alt="Gallery image 4"
+					loading="lazy"
+					decoding="async"
+					fetchpriority="low"
+					class="relative w-full rounded-2xl opacity-95 object-cover mix-blend-normal dark:mix-blend-lighten"
+					style="aspect-ratio: 16/9"
+				/>
+				<div class="absolute inset-0 bg-gradient-to-br from-purple-400/10 via-transparent to-indigo-400/10"></div>
+				<div class="pointer-events-none absolute inset-0 ring-1 ring-black/10 dark:ring-white/10 rounded-2xl"></div>
+			</div>
+		</div>
+
+		<div class="text-center max-w-2xl mx-auto space-y-3 mt-10">
+			<p class="opacity-85">Fragments remain—each a path back to what was lost, and forward to what must be found.</p>
 		</div>
 	</section>
 
@@ -194,7 +268,20 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
+import { useCardTilt } from '~/composables/useCardTilt'
+
+const card1 = ref(null)
+const card2 = ref(null)
+const card3 = ref(null)
+const card4 = ref(null)
+
+useCardTilt(card1)
+useCardTilt(card2)
+useCardTilt(card3)
+useCardTilt(card4)
+
 definePageMeta({
-    title: 'Home'
+  title: 'Home'
 })
 </script>

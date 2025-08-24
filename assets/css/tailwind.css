@@ -37,3 +37,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
+.card-hover {
+  @apply transition-transform duration-300 hover:scale-105 hover:skew-0 hover:rotate-0;
+}
