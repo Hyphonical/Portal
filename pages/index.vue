@@ -29,10 +29,31 @@
 		<p class="text-lg opacity-80">A station between worlds ✨</p>
 	</section>
 
-	<!-- Connect / Status -->
-	<section class="mx-auto w-full max-w-5xl px-6 py-10 opacity-0 animate-fade-in">
-		<h2 class="text-2xl font-semibold tracking-wide mb-4">Connect</h2>
-		<ServerStatus />
+	<!-- Connect Panel -->
+	<section class="mx-auto w-full max-w-5xl px-6 py-6 opacity-0 animate-fade-in">
+	<h2 class="text-2xl font-semibold tracking-wide mb-4">Connect</h2>
+
+	<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
+		<!-- ServerStatus inserted directly, additional classes passed through (h-full + justify-between) -->
+		<ServerStatus class="h-full justify-between" />
+
+		<!-- Right panel: exactly the same root classes as ServerStatus -->
+		<div class="w-full rounded-2xl border border-neutral-200/50 dark:border-neutral-800/60 bg-white/60 dark:bg-neutral-900/50 backdrop-blur-md p-5 flex flex-col justify-between gap-4 text-sm">
+		<div>
+			<h3 class="text-sm font-medium mb-2">News & Announcements</h3>
+			<p class="text-xs opacity-85 mb-3">Here could be a devlog entry from discord or something with added via workflow.</p>
+
+			<ul class="text-xs space-y-2">
+			<li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-purple-500/80"></span> Event: Saturday 20:00</li>
+			<li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-indigo-500/80"></span> New questline now live</li>
+			</ul>
+		</div>
+
+		<div class="mt-3 flex justify-end">
+			<a href="/more" class="inline-block px-3 py-2 text-sm rounded-lg border border-neutral-300/60 dark:border-neutral-700/60">Learn more</a>
+		</div>
+		</div>
+	</div>
 	</section>
 
 	<!-- Portal Content Left -->
