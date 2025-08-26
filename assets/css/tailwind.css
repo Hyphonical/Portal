@@ -43,29 +43,63 @@ body {
 }
 
 @layer base {
-/* Dark theme: stronger overlay + vignette for better panel contrast */
-:root[saved-theme="dark"] body,
-:root[data-color-mode="dark"] body,
-html.dark body {
+/* Robust: place background on html::before so it's always visible */
+html.dark::before,
+:root[saved-theme="dark"]::before,
+:root[data-color-mode="dark"]::before,
+html[data-theme="dark"]::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;                 /* sits behind page content but above body-bg painting issues */
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(6,6,10,0.82), rgba(6,6,10,0.82)),
+    radial-gradient(ellipse at center, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.6) 100%),
+    url('/images/index-dark.webp') center/cover no-repeat fixed;
   -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
-
-  /* top: uniform dark overlay; middle: vignette; bottom: image */
-  background:
-    linear-gradient(rgba(6,6,10,0.78), rgba(6,6,10,0.78)),
-    radial-gradient(ellipse at center, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.55) 100%),
-    url('/images/index-dark.webp') 50%/cover no-repeat fixed;
-
-  background-color: #05040a;
+  will-change: transform;
 }
+
 @media (max-width: 767px) {
-  :root[saved-theme="dark"] body,
-  :root[data-color-mode="dark"] body,
-  html.dark body {
-    background-attachment: scroll; /* avoid fixed on mobile for perf */
+  /* mobile: avoid fixed background to prevent jump when address bar shows/hides */
+  html.dark::before,
+  :root[saved-theme="dark"]::before,
+  :root[data-color-mode="dark"]::before,
+  :root[data-color-mode="dark"]::before {
+    /* use scroll attachment and explicit positioning/size */
+    background-image:
+      linear-gradient(rgba(6,6,10,0.82), rgba(6,6,10,0.82)),
+      radial-gradient(ellipse at center, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.6) 100%),
+      url('/images/index-dark.webp');
+    background-position: center center, center center, center center;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-size: cover, cover, cover;
+    background-attachment: scroll, scroll, scroll; /* <--- important: remove 'fixed' on mobile */
     -webkit-backdrop-filter: blur(1px);
     backdrop-filter: blur(1px);
   }
+
+  /* keep page content above the background */
+  body > * {
+    position: relative;
+    z-index: 10;
+  }
+}
+
+/* Ensure page content renders above the background */
+body > * {
+  position: relative;
+  z-index: 10;
+  background-color: transparent; /* ensure no opaque container hides bg */
+}
+
+/* Optional: ensure header/footer/main specifically above */
+header, main, footer, #nav-container {
+  position: relative;
+  z-index: 11;
+  background-color: transparent;
 }
 
   /* Light theme: no image, subtle gradient / color only */
