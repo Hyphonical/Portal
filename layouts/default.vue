@@ -16,6 +16,28 @@ import { Analytics } from '@vercel/analytics/nuxt';
 		<NuxtLink to="/" class="font-semibold tracking-wide"
 		  >Void Tales</NuxtLink
 		>
+<!-- Social Links (styled like ColorModeToggle) -->
+<div class="flex items-center gap-3">
+  <NuxtLink to="https://wiki.voidtales.win" target="_blank"
+    class="px-3 py-1.5 rounded-xl border border-neutral-300/60 dark:border-neutral-700/60 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800/70 transition-colors">
+    Wiki
+  </NuxtLink>
+
+  <NuxtLink to="https://blog.voidtales.win" target="_blank"
+    class="px-3 py-1.5 rounded-xl border border-neutral-300/60 dark:border-neutral-700/60 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800/70 transition-colors">
+    Blog
+  </NuxtLink>
+
+  <NuxtLink to="https://forum.voidtales.win" target="_blank"
+    class="px-3 py-1.5 rounded-xl border border-neutral-300/60 dark:border-neutral-700/60 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800/70 transition-colors">
+    Forum
+  </NuxtLink>
+
+  <NuxtLink to="https://discord.voidtales.win" target="_blank"
+    class="px-3 py-1.5 rounded-xl border border-neutral-300/60 dark:border-neutral-700/60 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800/70 transition-colors">
+    Discord
+  </NuxtLink>
+</div>
 		<div class="flex items-center gap-3">
 		  <ColorModeToggle />
 		</div>

@@ -41,3 +41,55 @@ body {
 .card-hover {
   @apply transition-transform duration-300 hover:scale-105 hover:skew-0 hover:rotate-0;
 }
+
+@layer base {
+/* Dark theme: stronger overlay + vignette for better panel contrast */
+:root[saved-theme="dark"] body,
+:root[data-color-mode="dark"] body,
+html.dark body {
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+
+  /* top: uniform dark overlay; middle: vignette; bottom: image */
+  background:
+    linear-gradient(rgba(6,6,10,0.78), rgba(6,6,10,0.78)),
+    radial-gradient(ellipse at center, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.55) 100%),
+    url('/images/index-dark.webp') 50%/cover no-repeat fixed;
+
+  background-color: #05040a;
+}
+@media (max-width: 767px) {
+  :root[saved-theme="dark"] body,
+  :root[data-color-mode="dark"] body,
+  html.dark body {
+    background-attachment: scroll; /* avoid fixed on mobile for perf */
+    -webkit-backdrop-filter: blur(1px);
+    backdrop-filter: blur(1px);
+  }
+}
+
+  /* Light theme: no image, subtle gradient / color only */
+  :root[saved-theme="light"] body,
+  :root[data-color-mode="light"] body,
+  html:not(.dark) body {
+    -webkit-backdrop-filter: blur(1px);
+    backdrop-filter: blur(1px);
+
+    background: linear-gradient(rgba(255,255,255,0.03), rgba(255,255,255,0.03));
+    background-color: #ffffff;
+  }
+
+  /* Mobile: avoid fixed attachment for better performance */
+  @media (max-width: 767px) {
+    :root[saved-theme="dark"] body,
+    :root[data-color-mode="dark"] body,
+    html.dark body,
+    :root[saved-theme="light"] body,
+    :root[data-color-mode="light"] body,
+    html:not(.dark) body {
+      background-attachment: scroll;
+      -webkit-backdrop-filter: blur(1px);
+      backdrop-filter: blur(1px);
+    }
+  }
+}
