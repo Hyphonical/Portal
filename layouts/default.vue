@@ -8,14 +8,14 @@ import { Analytics } from '@vercel/analytics/nuxt';
   <Analytics />
   <div>
 	<header
-	  class="sticky top-0 z-50 border-b border-neutral-200/40 dark:border-neutral-800/60 bg-white/70 dark:bg-neutral-900/70 backdrop-blur-md"
+		class="sticky top-0 z-50 border-b border-neutral-200/40 dark:border-neutral-800/60 bg-transparent dark:bg-transparent backdrop-blur-md"
 	>
 	  <div
 		class="mx-auto max-w-5xl px-6 py-4 flex items-center justify-between"
 	  >
-		<NuxtLink to="/" class="font-semibold tracking-wide"
-		  >Void Tales</NuxtLink
-		>
+	<NuxtLink to="/" class="font-semibold tracking-wide mr-4 sm:mr-6">
+		Void Tales
+	</NuxtLink>
 <!-- Social Links (styled like ColorModeToggle) -->
 <div class="flex items-center gap-3">
   <NuxtLink to="https://wiki.voidtales.win" target="_blank"
@@ -38,7 +38,8 @@ import { Analytics } from '@vercel/analytics/nuxt';
     Discord
   </NuxtLink>
 </div>
-		<div class="flex items-center gap-3">
+		<!-- add responsive left margin so toggle is separated from the social buttons -->
+		<div class="flex items-center gap-3 ml-2 sm:ml-4">
 		  <ColorModeToggle />
 		</div>
 	  </div>
