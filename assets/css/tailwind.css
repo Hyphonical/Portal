@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @config "../../tailwind.config.js";
 
 :root {
@@ -18,7 +18,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: "Cinzel Decorative", serif;
+	font-family: 'Cinzel Decorative', serif;
 }
 
 p,
@@ -29,7 +29,7 @@ div,
 input,
 button,
 textarea {
-	font-family: "Asul", sans-serif;
+	font-family: 'Asul', sans-serif;
 }
 
 body {
@@ -39,91 +39,101 @@ body {
 }
 
 .card-hover {
-  @apply transition-transform duration-300 hover:scale-105 hover:skew-0 hover:rotate-0;
+	@apply transition-transform duration-300 hover:scale-105 hover:skew-0 hover:rotate-0;
+}
+
+.animate-bob:hover {
+	animation: none !important;
 }
 
 @layer base {
-/* Robust: place background on html::before so it's always visible */
-html.dark::before,
-:root[saved-theme="dark"]::before,
-:root[data-color-mode="dark"]::before,
-html[data-theme="dark"]::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 0;                 /* sits behind page content but above body-bg painting issues */
-  pointer-events: none;
-  background:
-    linear-gradient(rgba(6,6,10,0.82), rgba(6,6,10,0.82)),
-    radial-gradient(ellipse at center, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.6) 100%),
-    url('/images/index-dark.webp') center/cover no-repeat fixed;
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(2px);
-  will-change: transform;
-}
+	/* Robust: place background on html::before so it's always visible */
+	html.dark::before,
+	:root[saved-theme='dark']::before,
+	:root[data-color-mode='dark']::before,
+	html[data-theme='dark']::before {
+		content: '';
+		position: fixed;
+		inset: 0;
+		z-index: 0; /* sits behind page content but above body-bg painting issues */
+		pointer-events: none;
+		background:
+			linear-gradient(rgba(6, 6, 10, 0.82), rgba(6, 6, 10, 0.82)),
+			radial-gradient(ellipse at center, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%),
+			url('/images/index-dark.webp') center/cover no-repeat fixed;
+		-webkit-backdrop-filter: blur(2px);
+		backdrop-filter: blur(2px);
+		will-change: transform;
+	}
 
-@media (max-width: 767px) {
-  /* mobile: avoid fixed background to prevent jump when address bar shows/hides */
-  html.dark::before,
-  :root[saved-theme="dark"]::before,
-  :root[data-color-mode="dark"]::before,
-  :root[data-color-mode="dark"]::before {
-    /* use scroll attachment and explicit positioning/size */
-    background-image:
-      linear-gradient(rgba(6,6,10,0.82), rgba(6,6,10,0.82)),
-      radial-gradient(ellipse at center, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.6) 100%),
-      url('/images/index-dark.webp');
-    background-position: center center, center center, center center;
-    background-repeat: no-repeat, no-repeat, no-repeat;
-    background-size: cover, cover, cover;
-    background-attachment: scroll, scroll, scroll; /* <--- important: remove 'fixed' on mobile */
-    -webkit-backdrop-filter: blur(1px);
-    backdrop-filter: blur(1px);
-  }
+	@media (max-width: 767px) {
+		/* mobile: avoid fixed background to prevent jump when address bar shows/hides */
+		html.dark::before,
+		:root[saved-theme='dark']::before,
+		:root[data-color-mode='dark']::before,
+		:root[data-color-mode='dark']::before {
+			/* use scroll attachment and explicit positioning/size */
+			background-image:
+				linear-gradient(rgba(6, 6, 10, 0.82), rgba(6, 6, 10, 0.82)),
+				radial-gradient(ellipse at center, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%),
+				url('/images/index-dark.webp');
+			background-position:
+				center center,
+				center center,
+				center center;
+			background-repeat: no-repeat, no-repeat, no-repeat;
+			background-size: cover, cover, cover;
+			background-attachment: scroll, scroll, scroll; /* <--- important: remove 'fixed' on mobile */
+			-webkit-backdrop-filter: blur(1px);
+			backdrop-filter: blur(1px);
+		}
 
-  /* keep page content above the background */
-  body > * {
-    position: relative;
-    z-index: 10;
-  }
-}
+		/* keep page content above the background */
+		body > * {
+			position: relative;
+			z-index: 10;
+		}
+	}
 
-/* Ensure page content renders above the background */
-body > * {
-  position: relative;
-  z-index: 10;
-  background-color: transparent; /* ensure no opaque container hides bg */
-}
+	/* Ensure page content renders above the background */
+	body > * {
+		position: relative;
+		z-index: 10;
+		background-color: transparent; /* ensure no opaque container hides bg */
+	}
 
-/* Optional: ensure header/footer/main specifically above */
-header, main, footer, #nav-container {
-  position: relative;
-  z-index: 11;
-  background-color: transparent;
-}
+	/* Optional: ensure header/footer/main specifically above */
+	header,
+	main,
+	footer,
+	#nav-container {
+		position: relative;
+		z-index: 11;
+		background-color: transparent;
+	}
 
-  /* Light theme: no image, subtle gradient / color only */
-  :root[saved-theme="light"] body,
-  :root[data-color-mode="light"] body,
-  html:not(.dark) body {
-    -webkit-backdrop-filter: blur(1px);
-    backdrop-filter: blur(1px);
+	/* Light theme: no image, subtle gradient / color only */
+	:root[saved-theme='light'] body,
+	:root[data-color-mode='light'] body,
+	html:not(.dark) body {
+		-webkit-backdrop-filter: blur(1px);
+		backdrop-filter: blur(1px);
 
-    background: linear-gradient(rgba(255,255,255,0.03), rgba(255,255,255,0.03));
-    background-color: #ffffff;
-  }
+		background: linear-gradient(rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.03));
+		background-color: #ffffff;
+	}
 
-  /* Mobile: avoid fixed attachment for better performance */
-  @media (max-width: 767px) {
-    :root[saved-theme="dark"] body,
-    :root[data-color-mode="dark"] body,
-    html.dark body,
-    :root[saved-theme="light"] body,
-    :root[data-color-mode="light"] body,
-    html:not(.dark) body {
-      background-attachment: scroll;
-      -webkit-backdrop-filter: blur(1px);
-      backdrop-filter: blur(1px);
-    }
-  }
+	/* Mobile: avoid fixed attachment for better performance */
+	@media (max-width: 767px) {
+		:root[saved-theme='dark'] body,
+		:root[data-color-mode='dark'] body,
+		html.dark body,
+		:root[saved-theme='light'] body,
+		:root[data-color-mode='light'] body,
+		html:not(.dark) body {
+			background-attachment: scroll;
+			-webkit-backdrop-filter: blur(1px);
+			backdrop-filter: blur(1px);
+		}
+	}
 }

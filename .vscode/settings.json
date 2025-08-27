@@ -1,0 +1,36 @@
+{
+  // Prettier settings
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+
+  // General editor settings
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+
+  // Vue/TypeScript settings
+  "typescript.preferences.importModuleSpecifier": "relative",
+
+  // Git settings for commit messages
+  "git.enableSmartCommit": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+
+  // Copilot settings
+  "github.copilot.enable": {
+    "*": true
+  },
+
+  // Other useful settings
+  "emmet.includeLanguages": {
+    "vue-html": "html",
+    "vue": "html"
+  },
+  "files.associations": {
+    "*.vue": "vue"
+  }
+}
