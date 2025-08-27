@@ -112,28 +112,50 @@ body {
 		background-color: transparent;
 	}
 
-	/* Light theme: no image, subtle gradient / color only */
-	:root[saved-theme='light'] body,
-	:root[data-color-mode='light'] body,
-	html:not(.dark) body {
-		-webkit-backdrop-filter: blur(1px);
-		backdrop-filter: blur(1px);
+	/* ---------- Light background using same image (light variant) ---------- */
+/* use a ::before layer like dark, but with a lighter veil */
+html:not(.dark)::before,
+:root[saved-theme='light']::before,
+:root[data-color-mode='light']::before,
+html[data-theme='light']::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0; /* behind UI */
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(255,255,255,0.60), rgba(255, 255, 255, 0.87)), /* lighter veil */
+    radial-gradient(ellipse at center, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.06) 100%),
+    url('/images/index-light.webp') center/cover no-repeat fixed;
+  -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);
+  will-change: transform;
+}
 
-		background: linear-gradient(rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.03));
-		background-color: #ffffff;
-	}
+/* ---------- Mobile fallback: disable fixed attachment for both modes ---------- */
+@media (max-width: 767px) {
+  /* dark mobile fallback (already present) */
+  html.dark::before,
+  :root[saved-theme='dark']::before,
+  :root[data-color-mode='dark']::before,
+  html[data-theme='dark']::before,
+  /* light mobile fallback */
+  html:not(.dark)::before,
+  :root[saved-theme='light']::before,
+  :root[data-color-mode='light']::before,
+  html[data-theme='light']::before {
+    /* remove 'fixed' on small screens to avoid address-bar jumps */
+    background-attachment: scroll;
+    background-position: center;
+    background-size: cover;
+    -webkit-backdrop-filter: blur(1px);
+    backdrop-filter: blur(1px);
+  }
 
-	/* Mobile: avoid fixed attachment for better performance */
-	@media (max-width: 767px) {
-		:root[saved-theme='dark'] body,
-		:root[data-color-mode='dark'] body,
-		html.dark body,
-		:root[saved-theme='light'] body,
-		:root[data-color-mode='light'] body,
-		html:not(.dark) body {
-			background-attachment: scroll;
-			-webkit-backdrop-filter: blur(1px);
-			backdrop-filter: blur(1px);
-		}
-	}
+  /* keep page content above the background */
+  body > * {
+    position: relative;
+    z-index: 10;
+  }
+}
 }
