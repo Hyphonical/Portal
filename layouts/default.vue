@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { SpeedInsights } from '@vercel/speed-insights/vue';
 import { Analytics } from '@vercel/analytics/nuxt';
+
+const isMenuOpen = ref(false);
 </script>
 
 <template>
@@ -13,8 +15,8 @@ import { Analytics } from '@vercel/analytics/nuxt';
 			<div class="mx-auto max-w-5xl px-6 py-4 flex items-center justify-between">
 				<NuxtLink to="/" class="font-semibold tracking-wide mr-4 sm:mr-6"> Void Tales </NuxtLink>
 
-				<!-- Social Links -->
-				<div class="flex items-center gap-3">
+				<!-- Social Links - Hidden on mobile, shown on md and up -->
+				<div class="hidden md:flex items-center gap-3">
 					<NuxtLink
 						to="https://wiki.voidtales.win"
 						target="_blank"
@@ -48,17 +50,86 @@ import { Analytics } from '@vercel/analytics/nuxt';
 					</NuxtLink>
 
 					<NuxtLink
-						to="/map"
-						target="_top"
+						to="https://dynmap.voidtales.win"
+						target="_blank"
 						class="px-3 py-1.5 rounded-xl border border-neutral-300/60 dark:border-neutral-700/60 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800/70 transition-colors"
 					>
 						World Map
 					</NuxtLink>
 				</div>
 
-				<!-- add responsive left margin so toggle is separated from the social buttons -->
+				<!-- Mobile menu button and ColorModeToggle -->
 				<div class="flex items-center gap-3 ml-2 sm:ml-4">
+					<!-- Hamburger menu button for mobile -->
+					<button
+						@click="isMenuOpen = !isMenuOpen"
+						class="md:hidden p-2 rounded-xl border border-neutral-300/60 dark:border-neutral-700/60 hover:bg-neutral-100 dark:hover:bg-neutral-800/70 transition-colors"
+						aria-label="Toggle menu"
+					>
+						<!-- Simple hamburger icon -->
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M4 6h16M4 12h16M4 18h16"
+							></path>
+						</svg>
+					</button>
 					<ColorModeToggle />
+				</div>
+			</div>
+
+			<!-- Mobile menu dropdown -->
+			<div
+				v-if="isMenuOpen"
+				class="md:hidden bg-white dark:bg-neutral-900 border-t border-neutral-200/40 dark:border-neutral-800/60"
+			>
+				<div class="mx-auto max-w-5xl px-6 py-4 flex flex-col gap-3">
+					<NuxtLink
+						to="https://wiki.voidtales.win"
+						target="_blank"
+						class="px-3 py-2 rounded-xl border border-neutral-300/60 dark:border-neutral-700/60 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800/70 transition-colors"
+						@click="isMenuOpen = false"
+					>
+						Wiki
+					</NuxtLink>
+
+					<NuxtLink
+						to="https://blog.voidtales.win"
+						target="_blank"
+						class="px-3 py-2 rounded-xl border border-neutral-300/60 dark:border-neutral-700/60 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800/70 transition-colors"
+						@click="isMenuOpen = false"
+					>
+						Blog
+					</NuxtLink>
+
+					<NuxtLink
+						to="https://forum.voidtales.win"
+						target="_blank"
+						class="px-3 py-2 rounded-xl border border-neutral-300/60 dark:border-neutral-700/60 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800/70 transition-colors"
+						@click="isMenuOpen = false"
+					>
+						Forum
+					</NuxtLink>
+
+					<NuxtLink
+						to="https://discord.voidtales.win"
+						target="_blank"
+						class="px-3 py-2 rounded-xl border border-neutral-300/60 dark:border-neutral-700/60 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800/70 transition-colors"
+						@click="isMenuOpen = false"
+					>
+						Discord
+					</NuxtLink>
+
+					<NuxtLink
+						to="https://bluemap.voidtales.win"
+						target="_blank"
+						class="px-3 py-2 rounded-xl border border-neutral-300/60 dark:border-neutral-700/60 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800/70 transition-colors"
+						@click="isMenuOpen = false"
+					>
+						World Map
+					</NuxtLink>
 				</div>
 			</div>
 		</header>

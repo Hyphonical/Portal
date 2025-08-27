@@ -33,10 +33,12 @@ See project configuration in [nuxt.config.ts](nuxt.config.ts).
 ## Getting Started
 
 Prerequisites:
+
 - Node.js 18.20+ (LTS recommended)
 - npm (or your preferred package manager)
 
 Install and run (Windows PowerShell):
+
 ```powershell
 npm install
 npm run dev
@@ -44,6 +46,7 @@ npm run dev
 ```
 
 Build, generate, and preview:
+
 ```powershell
 npm run build
 npm run generate
@@ -67,11 +70,13 @@ NUXT_PUBLIC_MODRINTH_URL=https://modrinth.com/modpack/your-pack
 ```
 
 Used by:
+
 - SEO and social previews: `siteUrl`, `siteName`, `siteDescription`, `themeColor`, `ogImage`, `twitterImage`, `twitterCard`, `twitterSite` → see [plugins/seo.ts](plugins/seo.ts)
 - Server status: `mcServerHost`, `mcServerPort` → see [components/ServerStatus.vue](components/ServerStatus.vue) and [server/api/mc-status.get.ts](server/api/mc-status.get.ts)
 - Modrinth button: `modrinthUrl` → see [components/ServerStatus.vue](components/ServerStatus.vue)
 
 Tip:
+
 - Set `NUXT_PUBLIC_SITE_URL` correctly for accurate canonical/og:urls.
 - Social images default to `/og.svg` and `/twitter.svg` (place in `public/`).
 
@@ -83,28 +88,30 @@ Tip:
   - Includes a custom `modrinth` brand color and several animations (`bob`, `fade-in`, `slide-up`, `blur-in`).
 
 Fonts are configured in [nuxt.config.ts](nuxt.config.ts) and loaded via @nuxt/fonts:
+
 - Asul (UI text)
 - Cinzel Decorative (headings)
 
 ## API
 
 Minecraft status (proxied via Nitro):
+
 - Route: `GET /api/mc-status?host=<host>&port=<port>`
 - Source: [server/api/mc-status.get.ts](server/api/mc-status.get.ts)
 - Returns:
   ```json
   {
-    "online": true,
-    "host": "play.voidtales.win",
-    "port": 25565,
-    "players": { "online": 7, "max": 40 },
-    "version": "1.20.1",
-    "motd": "Welcome to Void Tales",
-    "favicon": "data:image/png;base64,...",
-    "latency": 42
+  	"online": true,
+  	"host": "play.voidtales.win",
+  	"port": 25565,
+  	"players": { "online": 7, "max": 40 },
+  	"version": "1.20.1",
+  	"motd": "Welcome to Void Tales",
+  	"favicon": "data:image/png;base64,...",
+  	"latency": 42
   }
   ```
-If `host`/`port` are omitted, values from runtime config are used.
+  If `host`/`port` are omitted, values from runtime config are used.
 
 ## SEO
 
@@ -118,12 +125,14 @@ Adjust descriptions and social tags in [nuxt.config.ts](nuxt.config.ts).
 ## Deployment
 
 Vercel-ready:
+
 - Caching for Nuxt assets and strict security headers configured in [vercel.json](vercel.json)
   - CSP allows embedding BlueMap via `frame-src https://bluemap.voidtales.win`
   - COOP/COEP/COEP headers included; adjust if you embed cross-origin content
 - Ensure `NUXT_PUBLIC_SITE_URL` is set in Vercel Project Settings → Environment Variables.
 
 Build commands:
+
 - Install: `npm install` or `bun install`
 - Build: `npm run build`
 - Output: Nuxt/Nitro auto-detected by Vercel

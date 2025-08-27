@@ -121,10 +121,11 @@ const copyIp = async () => {
 				target="_blank"
 				class="px-4 py-2 rounded-xl bg-modrinth text-white hover:brightness-110 transition-colors text-sm flex items-center gap-x-2"
 			>
-				<span>Get the Modpack on Modrinth</span>
+				<span class="sm:hidden">Modrinth</span>
+				<span class="hidden sm:inline">Get the Modpack</span>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
-					class="h-5 w-5"
+					class="h-5 w-5 hidden sm:inline"
 					viewBox="0 0 24 24"
 					fill="currentColor"
 				>
