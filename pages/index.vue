@@ -100,7 +100,7 @@
 			</div>
 
 			<!-- Image Card: slanted left -->
-			<div class="relative [perspective:1200px] animate-bob" style="animation-delay: -1.5s;">
+			<div class="relative [perspective:1200px] animate-bob" style="animation-delay: -1.5s">
 				<div
 					class="relative rounded-2xl overflow-hidden border bg-white/5 border-neutral-200/40 shadow-2xl dark:bg-black/30 dark:border-white/10 backdrop-blur-sm -skew-1 rotate-5 card-hover"
 				>

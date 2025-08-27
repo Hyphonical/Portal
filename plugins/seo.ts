@@ -15,7 +15,9 @@ export default defineNuxtPlugin((nuxtApp) => {
 		};
 
 		// Canonical with fallback
-		const canonical = cfg.siteUrl ? new URL(route.fullPath || route.path, cfg.siteUrl).toString() : undefined;
+		const canonical = cfg.siteUrl
+			? new URL(route.fullPath || route.path, cfg.siteUrl).toString()
+			: undefined;
 
 		useHead({
 			link: canonical ? [{ rel: 'canonical', href: canonical }] : [],

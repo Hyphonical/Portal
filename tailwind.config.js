@@ -8,13 +8,13 @@ module.exports = {
 				modrinth: '#00AF5C',
 			},
 			animation: {
-				'bob': 'bob 6s ease-in-out infinite',
+				bob: 'bob 6s ease-in-out infinite',
 				'fade-in': 'fade-in 700ms ease-out forwards',
 				'slide-up': 'slide-up 700ms ease-out both',
 				'blur-in': 'blur-in 600ms ease-out both',
 			},
 			keyframes: {
-				'bob': {
+				bob: {
 					'0%, 100%': {
 						transform: 'translateY(-2%)',
 					},
