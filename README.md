@@ -26,7 +26,6 @@ A lightweight Nuxt 4 portal for the Void Tales Minecraft community: landing page
 - PostCSS + Autoprefixer
 - @nuxt/image, @nuxt/fonts, @nuxtjs/color-mode
 - Vercel Analytics + Speed Insights
-- VanillaTilt for subtle 3D hover effects
 
 See project configuration in [nuxt.config.ts](nuxt.config.ts).
 

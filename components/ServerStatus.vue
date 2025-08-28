@@ -1,7 +1,16 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 const cfg = useRuntimeConfig().public;
-const { data, pending, refresh } = useFetch('/api/mc-status', {
+type ServerStatus = {
+	online: boolean;
+	host: string;
+	port: number;
+	players: { online: number; max: number };
+	version: string | null;
+	motd: string | null;
+};
+
+const { data, pending, refresh } = useFetch<ServerStatus>(' ', {
 	query: { host: cfg.mcServerHost, port: cfg.mcServerPort },
 	server: true,
 	default: () => ({

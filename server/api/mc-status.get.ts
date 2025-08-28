@@ -8,19 +8,10 @@ interface McStatusResponse {
 		online: number;
 		max: number;
 	};
-	version: string | null;
-	motd: string | null;
+	version?: { name_clean?: string; name_raw?: string } | null;
+	motd?: { clean?: string[] } | null;
 	favicon?: string | null;
 	latency?: number | null;
-}
-
-interface McApiResponse {
-	online?: boolean;
-	players?: { online?: number; max?: number };
-	version?: { name_clean?: string; name_raw?: string };
-	motd?: { clean?: string[] };
-	favicon?: string;
-	latency?: number;
 }
 
 export default defineEventHandler(async (event): Promise<McStatusResponse> => {
@@ -43,7 +34,7 @@ export default defineEventHandler(async (event): Promise<McStatusResponse> => {
 
 	try {
 		const url = `https://api.mcstatus.io/v2/status/java/${host}:${port}`;
-		const res: McApiResponse = await $fetch<McApiResponse>(url, {
+		const res: McStatusResponse = await $fetch<McStatusResponse>(url, {
 			timeout: 5000,
 		});
 
@@ -55,8 +46,13 @@ export default defineEventHandler(async (event): Promise<McStatusResponse> => {
 				online: res?.players?.online ?? 0,
 				max: res?.players?.max ?? 0,
 			},
-			version: res?.version?.name_clean ?? res?.version?.name_raw ?? null,
-			motd: res?.motd?.clean?.join?.(' ') ?? null,
+			version: res?.version
+				? {
+						name_clean: res.version.name_clean,
+						name_raw: res.version.name_raw,
+					}
+				: null,
+			motd: res?.motd ? { clean: res.motd.clean } : null,
 			favicon: res?.favicon ?? null,
 			latency: res?.latency ?? null,
 		};

@@ -38,10 +38,6 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.card-hover {
-	@apply transition-transform duration-300 hover:scale-105 hover:skew-0 hover:rotate-0;
-}
-
 .animate-bob:hover {
 	animation: none !important;
 }
@@ -113,29 +109,34 @@ body {
 	}
 
 	/* ---------- Light background using same image (light variant) ---------- */
-/* use a ::before layer like dark, but with a lighter veil */
-html:not(.dark)::before,
-:root[saved-theme='light']::before,
-:root[data-color-mode='light']::before,
-html[data-theme='light']::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 0; /* behind UI */
-  pointer-events: none;
-  background:
-    linear-gradient(rgba(255,255,255,0.60), rgba(255, 255, 255, 0.87)), /* lighter veil */
-    radial-gradient(ellipse at center, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.06) 100%),
-    url('/images/index-light.webp') center/cover no-repeat fixed;
-  -webkit-backdrop-filter: blur(1px);
-  backdrop-filter: blur(1px);
-  will-change: transform;
-}
+	/* use a ::before layer like dark, but with a lighter veil */
+	html:not(.dark)::before,
+	:root[saved-theme='light']::before,
+	:root[data-color-mode='light']::before,
+	html[data-theme='light']::before {
+		content: '';
+		position: fixed;
+		inset: 0;
+		z-index: 0; /* behind UI */
+		pointer-events: none;
+		background:
+			linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.87)),
+			/* lighter veil */
+				radial-gradient(
+					ellipse at center,
+					rgba(255, 255, 255, 0.03) 0%,
+					rgba(255, 255, 255, 0.06) 100%
+				),
+			url('/images/index-light.webp') center/cover no-repeat fixed;
+		-webkit-backdrop-filter: blur(1px);
+		backdrop-filter: blur(1px);
+		will-change: transform;
+	}
 
-/* ---------- Mobile fallback: disable fixed attachment for both modes ---------- */
-@media (max-width: 767px) {
-  /* dark mobile fallback (already present) */
-  html.dark::before,
+	/* ---------- Mobile fallback: disable fixed attachment for both modes ---------- */
+	@media (max-width: 767px) {
+		/* dark mobile fallback (already present) */
+		html.dark::before,
   :root[saved-theme='dark']::before,
   :root[data-color-mode='dark']::before,
   html[data-theme='dark']::before,
@@ -144,18 +145,92 @@ html[data-theme='light']::before {
   :root[saved-theme='light']::before,
   :root[data-color-mode='light']::before,
   html[data-theme='light']::before {
-    /* remove 'fixed' on small screens to avoid address-bar jumps */
-    background-attachment: scroll;
-    background-position: center;
-    background-size: cover;
-    -webkit-backdrop-filter: blur(1px);
-    backdrop-filter: blur(1px);
-  }
+			/* remove 'fixed' on small screens to avoid address-bar jumps */
+			background-attachment: scroll;
+			background-position: center;
+			background-size: cover;
+			-webkit-backdrop-filter: blur(1px);
+			backdrop-filter: blur(1px);
+		}
 
-  /* keep page content above the background */
-  body > * {
-    position: relative;
-    z-index: 10;
-  }
+		/* keep page content above the background */
+		body > * {
+			position: relative;
+			z-index: 10;
+		}
+	}
 }
+
+@layer components {
+	/* Sections */
+	.section-shell {
+		@apply mx-auto w-full max-w-6xl px-4 md:px-6 lg:px-8 py-14 md:py-20;
+	}
+
+	.section-title {
+		@apply text-3xl md:text-4xl font-semibold tracking-wide;
+	}
+
+	.narrow-center {
+		@apply max-w-2xl mx-auto space-y-3;
+	}
+
+	/* Glass panels (Connect panel + ServerStatus root) */
+	.glass-panel {
+		@apply w-full rounded-2xl border border-neutral-200/50 dark:border-neutral-800/60
+      bg-white/60 dark:bg-neutral-900/50 backdrop-blur-md p-5 flex flex-col gap-4 text-sm;
+	}
+
+	/* Cards */
+	.card {
+		@apply relative rounded-2xl overflow-hidden border bg-white/5 border-neutral-200/40
+      shadow-2xl dark:bg-black/30 dark:border-white/10 backdrop-blur-sm;
+	}
+	.card-hover {
+		@apply transition-transform duration-300 hover:scale-105 hover:skew-0 hover:rotate-0;
+	}
+	.card-glow {
+		@apply pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-br
+      from-purple-500/30 via-indigo-500/15 to-cyan-400/30 opacity-60;
+	}
+	.card-tint {
+		@apply absolute inset-0 bg-gradient-to-br from-purple-400/10 via-transparent to-indigo-400/10;
+	}
+	.card-ring {
+		@apply pointer-events-none absolute inset-0 ring-1 ring-black/10 dark:ring-white/10 rounded-2xl;
+	}
+	.tilt-left {
+		@apply -skew-1 rotate-5;
+	}
+	.tilt-right {
+		@apply skew-1 -rotate-5;
+	}
+
+	/* Buttons (dark-on-light and inverted in dark mode) */
+	.btn-contrast {
+		@apply relative px-4 py-2 rounded-xl bg-black text-white dark:bg-white dark:text-black
+      hover:brightness-110 transition-colors;
+	}
+
+	/* Glowing hover effect for buttons */
+	.btn-glow {
+		@apply relative;
+	}
+
+	.btn-glow::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+		background: linear-gradient(to right, #6366f1, #ec4899, #eab308);
+		filter: blur(8px);
+		opacity: 0;
+		transition: opacity 0.2s;
+		z-index: -1;
+		pointer-events: none;
+	}
+
+	.btn-glow:hover::before {
+		opacity: 0.6;
+	}
 }

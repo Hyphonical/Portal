@@ -12,19 +12,25 @@
 	},
 	"devDependencies": {
 		"@nuxt/image": "^1.11.0",
+		"@unhead/vue": "^2.0.14",
 		"autoprefixer": "^10.4.21",
+		"eslint": "^9.34.0",
+		"eslint-plugin-unused-imports": "^4.2.0",
 		"nuxt": "^4.0.3",
+		"playwright": "^1.55.0",
 		"postcss": "^8.5.6",
-		"tailwindcss": "^4.1.12"
+		"prettier-plugin-organize-imports": "^4.2.0",
+		"tailwindcss": "^4.1.12",
+		"unstorage": "^1.17.0"
 	},
 	"dependencies": {
 		"@nuxt/fonts": "^0.11.4",
 		"@nuxtjs/color-mode": "^3.5.2",
 		"@tailwindcss/postcss": "^4.1.12",
 		"@vercel/analytics": "^1.5.0",
+		"@vercel/og": "^0.8.5",
 		"@vercel/speed-insights": "^1.2.0",
 		"prettier": "^3.6.2",
-		"vanilla-tilt": "^1.8.1",
 		"vue": "^3.5.20"
 	}
 }

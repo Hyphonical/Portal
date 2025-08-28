@@ -20,6 +20,11 @@ export default defineNuxtConfig({
 		],
 	},
 
+	vite: {
+		assetsInclude: ['**/*.wasm', '**/*.wasm?module'],
+		ssr: { noExternal: ['@vercel/og'] },
+	},
+
 	app: {
 		head: {
 			title: 'Void Tales',
@@ -35,11 +40,7 @@ export default defineNuxtConfig({
 			],
 			link: [
 				{ rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-				{
-					rel: 'preconnect',
-					href: 'https://fonts.gstatic.com',
-					crossorigin: '',
-				},
+				{ rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
 				{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
 				{
 					rel: 'stylesheet',
