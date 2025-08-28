@@ -10,7 +10,7 @@ type ServerStatus = {
 	motd: string | null;
 };
 
-const { data, pending, refresh } = useFetch<ServerStatus>(' ', {
+const { data, pending, refresh } = useFetch<ServerStatus>('/api/mc-status', {
 	query: { host: cfg.mcServerHost, port: cfg.mcServerPort },
 	server: true,
 	default: () => ({

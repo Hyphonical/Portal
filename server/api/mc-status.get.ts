@@ -46,15 +46,8 @@ export default defineEventHandler(async (event): Promise<McStatusResponse> => {
 				online: res?.players?.online ?? 0,
 				max: res?.players?.max ?? 0,
 			},
-			version: res?.version
-				? {
-						name_clean: res.version.name_clean,
-						name_raw: res.version.name_raw,
-					}
-				: null,
-			motd: res?.motd ? { clean: res.motd.clean } : null,
-			favicon: res?.favicon ?? null,
-			latency: res?.latency ?? null,
+			version: res?.version ?? null,
+			motd: res?.motd?.clean ? { clean: res.motd.clean } : null,
 		};
 	} catch {
 		return {
