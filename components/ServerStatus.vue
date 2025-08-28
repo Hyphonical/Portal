@@ -1,14 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+import type { ServerStatus } from '~/types/mc-status';
 const cfg = useRuntimeConfig().public;
-type ServerStatus = {
-	online: boolean;
-	host: string;
-	port: number;
-	players: { online: number; max: number };
-	version: string | null;
-	motd: string | null;
-};
 
 const { data, pending, refresh } = useFetch<ServerStatus>('/api/mc-status', {
 	query: { host: cfg.mcServerHost, port: cfg.mcServerPort },
@@ -117,8 +110,12 @@ const copyIp = async () => {
 				<div v-if="data?.version">
 					Version: <strong>{{ data.version }}</strong>
 				</div>
-				<div v-if="data?.motd" class="truncate max-w-full">
-					MOTD: <span class="opacity-80">{{ data.motd }}</span>
+				<div v-if="data?.motd" class="flex items-center gap-2 max-w-full">
+					<span>MOTD:</span>
+					<code
+						class="text-sm px-2 py-1 rounded-lg bg-neutral-100/80 dark:bg-neutral-800/70 border border-neutral-200/60 dark:border-neutral-700/60"
+						v-html="data?.motd ?? ''"
+					></code>
 				</div>
 			</div>
 		</div>

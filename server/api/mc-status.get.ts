@@ -1,20 +1,7 @@
 import { defineEventHandler, getQuery } from 'h3';
+import type { ServerStatus } from '~/types/mc-status';
 
-interface McStatusResponse {
-	online: boolean;
-	host: string | null;
-	port: number;
-	players: {
-		online: number;
-		max: number;
-	};
-	version?: { name_clean?: string; name_raw?: string } | null;
-	motd?: { clean?: string[] } | null;
-	favicon?: string | null;
-	latency?: number | null;
-}
-
-export default defineEventHandler(async (event): Promise<McStatusResponse> => {
+export default defineEventHandler(async (event): Promise<ServerStatus> => {
 	const cfg = useRuntimeConfig();
 	const q = getQuery(event);
 
@@ -24,7 +11,7 @@ export default defineEventHandler(async (event): Promise<McStatusResponse> => {
 	if (!host) {
 		return {
 			online: false,
-			host: null,
+			host: host ?? '',
 			port,
 			players: { online: 0, max: 0 },
 			version: null,
@@ -34,9 +21,12 @@ export default defineEventHandler(async (event): Promise<McStatusResponse> => {
 
 	try {
 		const url = `https://api.mcstatus.io/v2/status/java/${host}:${port}`;
-		const res: McStatusResponse = await $fetch<McStatusResponse>(url, {
-			timeout: 5000,
-		});
+		const res = await $fetch<{
+			online?: boolean;
+			players?: { online?: number; max?: number };
+			version?: { name_clean?: string };
+			motd?: { html?: string };
+		}>(url, { timeout: 5000 });
 
 		return {
 			online: !!res?.online,
@@ -46,8 +36,8 @@ export default defineEventHandler(async (event): Promise<McStatusResponse> => {
 				online: res?.players?.online ?? 0,
 				max: res?.players?.max ?? 0,
 			},
-			version: res?.version ?? null,
-			motd: res?.motd?.clean ? { clean: res.motd.clean } : null,
+			version: res?.version?.name_clean ?? null,
+			motd: res?.motd?.html ?? null,
 		};
 	} catch {
 		return {
