@@ -233,4 +233,28 @@ body {
 	.btn-glow:hover::before {
 		opacity: 0.6;
 	}
+
+	.embla {
+		@apply overflow-hidden w-full max-w-5xl mx-auto;
+	}
+	.embla__container {
+		@apply flex gap-8;
+	}
+	.embla__slide {
+		@apply flex-none flex justify-center items-center min-w-0;
+		width: 70%;
+	}
+	.embla__parallax {
+		@apply relative overflow-hidden rounded-2xl w-full h-full;
+	}
+	.embla__parallax__layer {
+		will-change: transform;
+		transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+	}
+	.embla__parallax__img {
+		@apply block w-full h-auto object-cover rounded-2xl;
+	}
+	.embla__slide__img {
+		@apply w-full h-auto;
+	}
 }

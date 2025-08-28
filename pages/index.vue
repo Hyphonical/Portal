@@ -163,108 +163,31 @@
 		</div>
 	</section>
 
-	<!-- Gallery 2x2 -->
+	<!-- Gallery Carousel -->
 	<section class="section-shell">
 		<div class="narrow-center text-center mb-10">
 			<h2 class="section-title">Echoes from the Station</h2>
 			<p class="opacity-85">Glimpses across realms—moments caught between memory and motion.</p>
 		</div>
 
-		<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
-			<!-- Card 1 -->
-			<div class="card card-hover">
-				<div class="card-glow"></div>
-				<NuxtImg
-					src="/images/grid-1.webp"
-					alt="Void Tales ~ Soul Station"
-					width="800"
-					height="450"
-					format="webp"
-					quality="80"
-					loading="lazy"
-				/>
-				<div class="card-tint"></div>
-				<div class="card-ring"></div>
-			</div>
-
-			<!-- Card 2 -->
-			<div class="card card-hover">
-				<div class="card-glow"></div>
-				<NuxtImg
-					src="/images/grid-2.webp"
-					alt="Void Tales ~ Soul Station"
-					width="800"
-					height="450"
-					format="webp"
-					quality="80"
-					loading="lazy"
-				/>
-				<div class="card-tint"></div>
-				<div class="card-ring"></div>
-			</div>
-
-			<!-- Card 3 -->
-			<div class="card card-hover">
-				<div class="card-glow"></div>
-				<NuxtImg
-					src="/images/grid-3.webp"
-					alt="Void Tales ~ Soul Station"
-					width="800"
-					height="450"
-					format="webp"
-					quality="80"
-					loading="lazy"
-				/>
-				<div class="card-tint"></div>
-				<div class="card-ring"></div>
-			</div>
-
-			<!-- Card 4 -->
-			<div class="card card-hover">
-				<div class="card-glow"></div>
-				<NuxtImg
-					src="/images/grid-4.webp"
-					alt="Void Tales ~ Soul Station"
-					width="800"
-					height="450"
-					format="webp"
-					quality="80"
-					loading="lazy"
-				/>
-				<div class="card-tint"></div>
-				<div class="card-ring"></div>
-			</div>
-
-			<!-- Card 5 -->
-			<div class="card card-hover">
-				<div class="card-glow"></div>
-				<NuxtImg
-					src="/images/grid-5.webp"
-					alt="Void Tales ~ Soul Station"
-					width="800"
-					height="450"
-					format="webp"
-					quality="80"
-					loading="lazy"
-				/>
-				<div class="card-tint"></div>
-				<div class="card-ring"></div>
-			</div>
-
-			<!-- Card 6 -->
-			<div class="card card-hover">
-				<div class="card-glow"></div>
-				<NuxtImg
-					src="/images/grid-6.webp"
-					alt="Void Tales ~ Soul Station"
-					width="800"
-					height="450"
-					format="webp"
-					quality="80"
-					loading="lazy"
-				/>
-				<div class="card-tint"></div>
-				<div class="card-ring"></div>
+		<div class="embla" ref="emblaRef">
+			<div class="embla__container flex gap-x-8">
+				<div v-for="img in images" :key="img" class="embla__slide">
+					<div class="card">
+						<div class="card-glow"></div>
+						<NuxtImg
+							class="embla__slide__img"
+							:src="img"
+							alt="Void Tales ~ Soul Station"
+							width="800"
+							height="450"
+							format="webp"
+							quality="80"
+						/>
+						<div class="card-tint"></div>
+						<div class="card-ring"></div>
+					</div>
+				</div>
 			</div>
 		</div>
 
@@ -296,6 +219,18 @@
 </template>
 
 <script setup>
+import emblaCarouselVue from 'embla-carousel-vue';
+
+const [emblaRef] = emblaCarouselVue();
+const images = [
+	'/images/grid-1.webp',
+	'/images/grid-2.webp',
+	'/images/grid-3.webp',
+	'/images/grid-4.webp',
+	'/images/grid-5.webp',
+	'/images/grid-6.webp',
+];
+
 definePageMeta({
 	title: 'Home',
 });
