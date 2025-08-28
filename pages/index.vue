@@ -198,6 +198,34 @@
 		</div>
 	</section>
 
+	<!-- Trailer Section -->
+	<section class="section-shell">
+		<div class="narrow-center text-center mb-10">
+			<h2 class="section-title">Watch the Trailer</h2>
+			<p class="opacity-85 mb-6">Step into the world of Void Tales.</p>
+			<div class="mx-auto w-full max-w-2xl flex justify-center">
+				<div
+					class="rounded-2xl overflow-hidden border border-indigo-400/60 shadow-[0_0_0_4px_rgba(128,90,213,0.15),0_8px_32px_0_rgba(139,92,246,0.25)] aspect-video w-full"
+					style="
+						box-shadow:
+							0 0 0 2px rgba(128, 90, 213, 0.25),
+							0 0 0 6px rgba(139, 92, 246, 0.12),
+							0 8px 32px 0 rgba(139, 92, 246, 0.18);
+					"
+				>
+					<iframe
+						class="rounded-2xl w-full h-full"
+						src="https://www.youtube.com/embed/sIdqXmTkGsE"
+						title="Void Tales Trailer"
+						frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen
+					></iframe>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<!-- Social Links -->
 	<section class="text-center space-y-6 py-20">
 		<h3 class="text-2xl font-semibold tracking-wide">Follow the Journey</h3>
