@@ -69,6 +69,12 @@ export default defineNuxtConfig({
 			modrinthUrl:
 				process.env.NUXT_PUBLIC_MODRINTH_URL || 'https://modrinth.com/modpack/void-tales',
 		},
+		plan: {
+			url: process.env.PLAN_URL,
+			user: process.env.PLAN_USER,
+			pass: process.env.PLAN_PASS,
+			serverId: process.env.SERVER_ID,
+		},
 	},
 
 	colorMode: {

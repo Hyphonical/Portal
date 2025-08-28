@@ -66,6 +66,12 @@ NUXT_PUBLIC_MC_PORT=25565
 
 # Modrinth project
 NUXT_PUBLIC_MODRINTH_URL=https://modrinth.com/modpack/your-pack
+
+# Plan server API credentials (used for /api/plan-stats)
+PLAN_URL=
+PLAN_USER=
+PLAN_PASS=
+SERVER_ID=
 ```
 
 Used by:
@@ -78,6 +84,7 @@ Tip:
 
 - Set `NUXT_PUBLIC_SITE_URL` correctly for accurate canonical/og:urls.
 - Social images default to `/og.svg` and `/twitter.svg` (place in `public/`).
+- Keep your `.env` file out of version control by adding `.env` to `.gitignore`.
 
 ## Styles
 
