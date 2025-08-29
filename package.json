@@ -4,7 +4,6 @@
 	"private": true,
 	"scripts": {
 		"dev": "nuxt dev",
-		"start": "node .output/server/index.mjs",
 		"build": "nuxt build",
 		"generate": "nuxt generate",
 		"preview": "nuxt preview",
