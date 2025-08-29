@@ -1,3 +1,0 @@
-server: {
-  allowedHosts: true
-}
