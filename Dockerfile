@@ -1,24 +1,40 @@
-FROM node:20-alpine AS base
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
-RUN corepack enable
- 
-FROM base AS build
+# Phase 1: Build-Umgebung
+FROM node:20-alpine AS build
+
+# Installiere die Build-Abhängigkeiten und libvips
+RUN apk add --no-cache build-base python3 libvips-dev
+
+# Setzt das Arbeitsverzeichnis im Container
 WORKDIR /app
-COPY . .
+
+# Kopiert die pnpm-Konfigurationsdateien
 COPY package.json pnpm-lock.yaml ./
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
-ENV NODE_ENV=production
+
+# Installiert die Abhängigkeiten
+RUN pnpm install --frozen-lockfile
+
+# Kopiert den Rest des Quellcodes
+COPY . .
+
+# Führt den Build-Befehl aus
 RUN pnpm run build
- 
-FROM base AS dokploy
+
+# Phase 2: Produktions-Umgebung
+FROM node:20-alpine AS dokploy
+
+# Installiere nur die notwendige Laufzeit-Abhängigkeit libvips
+RUN apk add --no-cache libvips
+
+# Setzt das Arbeitsverzeichnis und die Umgebung
 WORKDIR /app
 ENV NODE_ENV=production
- 
-# Copy only the necessary files
+
+# Kopiert die Nuxt-Build-Dateien aus dem .output-Ordner
 COPY --from=build /app/.output ./
+
+# Kopiert die Package-Dateien
 COPY --from=build /app/package.json ./package.json
-COPY --from=build /app/node_modules ./node_modules
- 
+COPY --from=build /app/pnpm-lock.yaml ./pnpm-lock.yaml
+
 EXPOSE 3000
 CMD ["pnpm", "start"]
