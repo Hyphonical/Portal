@@ -23,6 +23,12 @@ export default defineNuxtConfig({
 	vite: {
 		assetsInclude: ['**/*.wasm', '**/*.wasm?module'],
 		ssr: { noExternal: ['@vercel/og'] },
+		// Set allowedHosts for dokploy
+		server: {
+			allowedHosts: [
+			'.hzwd.xyz',
+			],
+		},
 	},
 
 	app: {
