@@ -1,5 +1,5 @@
 [phases.setup]
-nixPkgs = ["nodejs_20", "pnpm", "bun"] # Installiert pnpm als Teil des Setups
+nixPkgs = ["nodejs_20", "pnpm", "bun", "libvips"] # Installiert pnpm als Teil des Setups
 
 [phases.install]
 cmds = ["pnpm i --frozen-lockfile"] # Führt den pnpm-Installationsbefehl aus
