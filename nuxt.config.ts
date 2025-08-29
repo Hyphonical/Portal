@@ -23,9 +23,7 @@ export default defineNuxtConfig({
 	vite: {
 		assetsInclude: ['**/*.wasm', '**/*.wasm?module'],
 		server: {
-			allowedHosts: [
-			'.hzwd.xyz',
-			],
+			allowedHosts: ['.hzwd.xyz'],
 		},
 	},
 
