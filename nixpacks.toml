@@ -9,3 +9,6 @@ cmds = ["pnpm run build"] # Führt den pnpm build-Befehl aus
 
 [start]
 cmd = "pnpm run start"
+
+[variables]
+LD_LIBRARY_PATH = "$LD_LIBRARY_PATH:$NIX_LD_LIBRARY_PATH"
