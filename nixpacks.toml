@@ -8,4 +8,4 @@ cmds = ["pnpm i --frozen-lockfile"] # Führt den pnpm-Installationsbefehl aus
 cmds = ["pnpm run build"] # Führt den pnpm build-Befehl aus
 
 [start]
-cmd = "bun run start"
+cmd = "pnpm run start"
