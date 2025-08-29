@@ -20,5 +20,6 @@ COPY --from=build /app/.output ./
 COPY --from=build /app/package.json ./package.json
 COPY --from=build /app/node_modules ./node_modules
  
+ENV PORT=3000
 EXPOSE 3000
 CMD ["pnpm", "start"]
