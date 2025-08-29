@@ -22,7 +22,6 @@ export default defineNuxtConfig({
 
 	vite: {
 		assetsInclude: ['**/*.wasm', '**/*.wasm?module'],
-		ssr: { noExternal: ['@vercel/og'] },
 	},
 
 	app: {

@@ -15,8 +15,6 @@ A lightweight Nuxt 4 portal for the Void Tales Minecraft community: landing page
 - 🔎 Automatic SEO and canonical tags → [plugins/seo.ts](plugins/seo.ts)
 - 🖼️ Optimized images via Nuxt Image → used in [pages/index.vue](pages/index.vue)
 - 🅰️ Google Fonts via @nuxt/fonts → configured in [nuxt.config.ts](nuxt.config.ts)
-- 📊 Vercel Analytics + Speed Insights → injected in [layouts/default.vue](layouts/default.vue)
-- 🛡️ Strong security headers + long-term cache for assets → [vercel.json](vercel.json)
 - 💨 Tailwind CSS v4 with custom animations/utilities → [tailwind.config.js](tailwind.config.js), [assets/css/tailwind.css](assets/css/tailwind.css)
 
 ## Tech Stack
@@ -25,7 +23,6 @@ A lightweight Nuxt 4 portal for the Void Tales Minecraft community: landing page
 - Tailwind CSS v4 (via @tailwindcss/postcss)
 - PostCSS + Autoprefixer
 - @nuxt/image, @nuxt/fonts, @nuxtjs/color-mode
-- Vercel Analytics + Speed Insights
 
 See project configuration in [nuxt.config.ts](nuxt.config.ts).
 
@@ -130,18 +127,10 @@ Adjust descriptions and social tags in [nuxt.config.ts](nuxt.config.ts).
 
 ## Deployment
 
-Vercel-ready:
-
-- Caching for Nuxt assets and strict security headers configured in [vercel.json](vercel.json)
-  - CSP allows embedding BlueMap via `frame-src https://bluemap.voidtales.win`
-  - COOP/COEP/COEP headers included; adjust if you embed cross-origin content
-- Ensure `NUXT_PUBLIC_SITE_URL` is set in Vercel Project Settings → Environment Variables.
-
 Build commands:
 
 - Install: `npm install` or `bun install`
 - Build: `npm run build`
-- Output: Nuxt/Nitro auto-detected by Vercel
 
 ## Contributing
 
@@ -166,7 +155,6 @@ Build commands:
 - Server/API: [server/api/mc-status.get.ts](server/api/mc-status.get.ts)
 - SEO plugin: [plugins/seo.ts](plugins/seo.ts)
 - Public assets: [public/](public/)
-- Vercel headers: [vercel.json](vercel.json)
 - Formatting: [.prettierrc](.prettierrc)
 
 ---

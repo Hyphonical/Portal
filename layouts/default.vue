@@ -1,13 +1,8 @@
 <script setup lang="ts">
-import { SpeedInsights } from '@vercel/speed-insights/vue';
-import { Analytics } from '@vercel/analytics/nuxt';
-
 const isMenuOpen = ref(false);
 </script>
 
 <template>
-	<SpeedInsights />
-	<Analytics />
 	<div>
 		<header
 			class="sticky top-0 z-50 border-b border-neutral-200/40 dark:border-neutral-800/60 bg-transparent dark:bg-transparent backdrop-blur-md"
