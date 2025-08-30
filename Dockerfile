@@ -19,7 +19,7 @@ FROM base AS dokploy
 WORKDIR /app
 ENV NODE_ENV=production
 
-# Kopiere die produktionsfertigen Dateien aus der Build-Stufe
+# Kopiere die produktionsfertigen Dateien aus der Build-Stufe // test
 COPY --from=build /app/.output ./.output
 
 # Kopiere nur die package.json und installiere nur die produktions-abhängigkeiten
