@@ -25,6 +25,7 @@ COPY --from=build /app/.output ./
 # Kopiere nur die package.json und installiere nur die produktions-abhängigkeiten
 COPY --from=build /app/package.json ./package.json
 COPY --from=build /app/pnpm-lock.yaml ./pnpm-lock.yaml
+COPY --from=build /app/node_modules ./node_modules
 RUN pnpm install --production --ignore-scripts --frozen-lockfile
 
 ENV PORT=3000
