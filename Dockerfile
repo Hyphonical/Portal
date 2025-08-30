@@ -1,5 +1,5 @@
 # Phase 1: Base-Image für beide Stufen
-FROM node:20 AS base
+FROM node:20-alpine AS base
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
@@ -20,7 +20,7 @@ WORKDIR /app
 ENV NODE_ENV=production
 
 # Kopiere die produktionsfertigen Dateien aus der Build-Stufe
-COPY --from=build /app/.output ./
+COPY --from=build /app/.output ./.output
 
 # Kopiere nur die package.json und installiere nur die produktions-abhängigkeiten
 COPY --from=build /app/package.json ./package.json
