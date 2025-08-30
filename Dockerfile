@@ -8,6 +8,7 @@ RUN corepack enable
 FROM base AS build
 WORKDIR /app
 COPY . .
+COPY package.json pnpm-lock.yaml ./
 # Führe pnpm install und den Build aus
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 ENV NODE_ENV=production
