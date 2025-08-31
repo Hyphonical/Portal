@@ -19,6 +19,9 @@ FROM base AS dokploy
 WORKDIR /app
 ENV NODE_ENV=production
 
+# Installiere curl in der finalen Stage
+RUN apk add --no-cache curl
+
 # Kopiere die produktionsfertigen Dateien aus der Build-Stufe
 COPY --from=build /app/.output ./.output
 
