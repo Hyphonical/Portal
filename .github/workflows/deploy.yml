@@ -1,36 +1,51 @@
 name: Build Docker images
- 
+# Workflow name displayed in the GitHub Actions UI.
+
 on:
   push:
     branches: ["main"]
- 
+# Triggers the workflow on every push to the 'main' branch.
+
 jobs:
   build-and-push-dockerfile-image:
+    # A single job to build and push the Docker image.
     runs-on: ubuntu-latest
- 
+
+    # 1. Define an Environment for the job
+    environment:
+      # Sets the environment name, which can be used for deployment protection rules.
+      name: production
+      # Provides a URL link to the deployed application.
+      url: https://portal.voidtales.win/
+
     steps:
       - name: 📥 Checkout repo
+        # Checks out your repository code so the job can access it.
         uses: actions/checkout@v3
- 
+
       - name: 🔧 Log in to Docker Hub
+        # Logs in to Docker Hub using secrets for secure authentication.
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }} # Make sure to add the secrets in your repository in -> Settings -> Secrets (Actions) -> New repository secret
-          password: ${{ secrets.DOCKERHUB_TOKEN }}   # Make sure to add the secrets in your repository in -> Settings -> Secrets (Actions) -> New repository secret
- 
+          password: ${{ secrets.DOCKERHUB_TOKEN }}    # Make sure to add the secrets in your repository in -> Settings -> Secrets (Actions) -> New repository secret
+
       - name: 🔨 Build and push Docker image
+        # Builds the Docker image from your Dockerfile and pushes it to Docker Hub.
         uses: docker/build-push-action@v4
         with:
           context: .
           file: ./Dockerfile
           push: true
-          # Make sure to replace with your own namespace and repository
+          # Defines the image tags, including your Docker Hub namespace.
           tags: |
-            inventory69/voidtales-portal:latest 
-          platforms: linux/amd64     
-
-      # Füge diesen Schritt am Ende deines bestehenden Workflows hinzu
+            inventory69/voidtales-portal:latest
+          platforms: linux/amd64
+      
+      # Adds this step at the end of your existing workflow
       - name: 🚀 Trigger Dokploy Deployment
+        # Triggers a new deployment by sending a POST request to the Dokploy API.
+        id: 'laststep'
         run: |
             curl -X POST \
             -H "Authorization: Bearer ${{ secrets.DOKPLOY_API_TOKEN }}" \
