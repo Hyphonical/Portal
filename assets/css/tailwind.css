@@ -54,7 +54,7 @@ body {
 		z-index: 0; /* sits behind page content but above body-bg painting issues */
 		pointer-events: none;
 		background:
-			linear-gradient(rgba(6, 6, 10, 0.82), rgba(6, 6, 10, 0.82)),
+			linear-gradient(rgba(6, 6, 10, 0.664), rgba(6, 6, 10, 0.644)),
 			radial-gradient(ellipse at center, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%),
 			url('/images/index-dark.webp') center/cover no-repeat fixed;
 		-webkit-backdrop-filter: blur(2px);
@@ -70,7 +70,7 @@ body {
 		:root[data-color-mode='dark']::before {
 			/* use scroll attachment and explicit positioning/size */
 			background-image:
-				linear-gradient(rgba(6, 6, 10, 0.82), rgba(6, 6, 10, 0.82)),
+				linear-gradient(rgba(6, 6, 10, 0.555), rgba(6, 6, 10, 0.562)),
 				radial-gradient(ellipse at center, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%),
 				url('/images/index-dark.webp');
 			background-position:
