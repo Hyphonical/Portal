@@ -233,6 +233,9 @@
 			<NuxtLink to="https://wiki.voidtales.win" target="_blank" class="btn-contrast btn-glow"
 				>Wiki</NuxtLink
 			>
+			<NuxtLink to="https://gallery.voidtales.win" target="_blank" class="btn-contrast btn-glow"
+				>Gallery</NuxtLink
+			>
 			<NuxtLink to="https://blog.voidtales.win" target="_blank" class="btn-contrast btn-glow"
 				>Blog</NuxtLink
 			>

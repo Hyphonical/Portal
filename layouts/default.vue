@@ -36,6 +36,14 @@ onMounted(() => {
 					</NuxtLink>
 
 					<NuxtLink
+						to="https://gallery.voidtales.win"
+						target="_blank"
+						class="px-3 py-1.5 rounded-xl border border-neutral-300/60 dark:border-neutral-700/60 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800/70 transition-colors"
+					>
+						Gallery
+					</NuxtLink>
+
+					<NuxtLink
 						to="https://blog.voidtales.win"
 						target="_blank"
 						class="px-3 py-1.5 rounded-xl border border-neutral-300/60 dark:border-neutral-700/60 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800/70 transition-colors"
@@ -103,6 +111,15 @@ onMounted(() => {
 						@click="isMenuOpen = false"
 					>
 						Wiki
+					</NuxtLink>
+
+					<NuxtLink
+						to="https://gallery.voidtales.win"
+						target="_blank"
+						class="px-3 py-2 rounded-xl border border-neutral-300/60 dark:border-neutral-700/60 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800/70 transition-colors"
+						@click="isMenuOpen = false"
+					>
+						Gallery
 					</NuxtLink>
 
 					<NuxtLink
